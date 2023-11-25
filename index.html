@@ -12,6 +12,25 @@
     <script>
   vkBridge.send("VKWebAppInit", {});
 </script>
+<script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+
+      function FromUnityToJs ()   // функция вызывается из Unity
+      {
+            alert ("Very good!");
+      }
+
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
+
+
+      jQuery(document).ready(function($) // страница прогружена
+      {
+
+
+
+      });
+    </script>
     <div id="unity-container" style="position:absolute;width:100%;height:100%;left:0%;top:0%;">
       <canvas id="unity-canvas" style="position:absolute;width:100%;height:100%"></canvas>
       <div id="unity-loading-bar">
