@@ -15,16 +15,18 @@
 
       function PostBox()   // функция вызывается из Unity
       {
-           vkBridge.send('VKWebAppShowWallPostBox', {
-          message: 'Первая запись на стене!'
+                   bridge.send('VKWebAppGetUserInfo', {
+          user_id: 743784474
           })
-          .then((data) => {
-            if (data.post_id) {
-              console.log ("ok"); // Запись размещена
+          .then((data) => { 
+            if (data.id) {
+              // Данные пользователя получены
+              console.log(data);      
             }
           })
           .catch((error) => {
-            console.log(error); // Ошибка
+            // Ошибка
+            console.log(error);
           });
       }
 
