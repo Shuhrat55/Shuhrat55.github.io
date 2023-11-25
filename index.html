@@ -6,12 +6,23 @@
     <title>Unity WebGL Player | GameTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <script>
 
       function PostBox()   // функция вызывается из Unity
       {
-            alert ("Very her good!");
+            vkBridge.send('VKWebAppShowWallPostBox', {
+          message: 'Первая запись на стене!'
+          })
+          .then((data) => {
+            if (data.post_id) {
+              console.log ("ok"); // Запись размещена
+            }
+          })
+          .catch((error) => {
+            console.log(error); // Ошибка
+          });
       }
 
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
@@ -20,16 +31,14 @@
       jQuery(document).ready(function($) // страница прогружена
       {
 
-
+            vkBridge.send("VKWebAppInit", {});
 
       });
 
 
 
     </script>
-    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <script>
-  vkBridge.send("VKWebAppInit", {});
 </script>
   </head>
   <body>
