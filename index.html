@@ -15,19 +15,22 @@
 
       function PostBox()   // функция вызывается из Unity
       {
+           Vkinit();
+      }
+      function Vkinit()   // функция вызывается из 
+      {
                    bridge.send('VKWebAppGetUserInfo', {
-          user_id: 743784474
-          })
-          .then((data) => { 
-            if (data.id) {
-              // Данные пользователя получены
-              console.log(data);      
-            }
-          })
-          .catch((error) => {
-            // Ошибка
-            console.log(error);
-          });
+              user_id: 
+              })
+              .then((data) => { 
+                if (data.id) {
+                   unityInstance.SendMessage('Connect_JS', 'Id',let user_id);
+                }
+              })
+              .catch((error) => {
+                // Ошибка
+                console.log(error);
+              });
       }
 
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
