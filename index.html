@@ -23,6 +23,30 @@
         <div id="unity-build-title">GameTest</div>
       </div>
     </div>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script> 
+    function FromUnityToJs () 
+    { 
+        VkBridge.send('VKWebAppShowNativeAds', {
+  ad_format: 'interstitial' /* Тип рекламы */
+  })
+  .then( (data) => { 
+    if (data.result) {
+      // Реклама была показана
+    } else {
+      // Ошибка
+    }
+  })
+  .catch((error) => { console.log(error); });
+    } 
+   jQuery(document).ready(function($) 
+          // страница прогружена 
+          { 
+          vkBridge.send('VKWebAppInit'); 
+          // Инициализация ВК
+           }); </script> 
+
+    
     <script>
 
       var container = document.querySelector("#unity-container");
