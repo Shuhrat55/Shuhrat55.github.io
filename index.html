@@ -12,7 +12,18 @@
 
         function FromUnityToJs ()   // функция вызывается из Unity
         {
-        callMethodWallPost();
+        
+        bridge.send('VKWebAppShowNativeAds', {
+              ad_format: 'interstitial' /* Тип рекламы */
+              })
+              .then( (data) => { 
+                if (data.result) {
+                  // Реклама была показанаcallMethodWallPost();
+                } else {
+                  // Ошибка
+                }
+              })
+              .catch((error) => { console.log(error); });
         }
 
         function callMethodWallPost() // вызываем метод ВК
