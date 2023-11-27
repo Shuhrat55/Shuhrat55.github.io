@@ -8,25 +8,36 @@
     <link rel="stylesheet" href="TemplateData/style.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-     <script>
-              vkBridge.send("VKWebAppInit", {});
-     </script>
-    <script>
+    <script>   // Пользовательский код
 
-      function PostBox()   // функция вызывается из Unity
-              {
-               
-              }
+        function FromUnityToJs ()   // функция вызывается из Unity
+        {
+        callMethodWallPost();
+        }
 
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
+        function callMethodWallPost() // вызываем метод ВК
+        {
+        vkBridge.send('VKWebAppShowWallPostBox', {
+          message: 'Fist post!'
+          })
+          .then((data) => {
+            if (data.post_id) {
+              console.log ("ok"); // Запись размещена
+              
+            }
+          })
+          .catch((error) => {
+            console.log(error); // Ошибка
+            
+          });
 
+        }
 
-      jQuery(document).ready(function($) // страница прогружена
-      {
+        jQuery(document).ready(function($) // страница прогружена
+        {
+            vkBridge.send('VKWebAppInit'); // Инициализация ВК
+        });
 
-        
-
-      });
     </script>
   </head>
   <body>
