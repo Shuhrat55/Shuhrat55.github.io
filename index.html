@@ -6,51 +6,6 @@
     <title>Unity WebGL Player | GameTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
-     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-    <script>   // Пользовательский код
-
-        function FromUnityToJs ()   // функция вызывается из Unity
-        {
-        
-        vkBridge.send('VKWebAppShowNativeAds', {
-              ad_format: 'interstitial' /* Тип рекламы */
-              })
-              .then( (data) => { 
-                if (data.result) {
-                  // Реклама была показана
-                  callMethodWallPost();
-                } else {
-                  // Ошибка
-                }
-              })
-              .catch((error) => { console.log(error); });
-        }
-
-        function callMethodWallPost() // вызываем метод ВК
-        {
-        vkBridge.send('VKWebAppShowWallPostBox', {
-          message: 'Fist post!'
-          })
-          .then((data) => {
-            if (data.post_id) {
-              console.log ("ok"); // Запись размещена
-              
-            }
-          })
-          .catch((error) => {
-            console.log(error); // Ошибка
-            
-          });
-
-        }
-
-        jQuery(document).ready(function($) // страница прогружена
-        {
-            vkBridge.send('VKWebAppInit'); // Инициализация ВК
-        });
-
-    </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -108,7 +63,7 @@
         frameworkUrl: buildUrl + "/GameTest.framework.js.unityweb",
         codeUrl: buildUrl + "/GameTest.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
+        companyName: "Shu Mi",
         productName: "GameTest",
         productVersion: "0.1",
         showBanner: unityShowBanner,
