@@ -120,31 +120,31 @@
     </script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-   <script>   // Пользовательский код
+   <script>   // ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГЁГ© ГЄГ®Г¤
 
-        function ads ()   // функция вызывается из Unity
+        function ads ()   // ГґГіГ­ГЄГ¶ГЁГї ГўГ»Г§Г»ГўГ ГҐГІГ±Гї ГЁГ§ Unity
         {
         callMethodWallPost();
         }
 
-        function callMethodWallPost() // вызываем метод ВК
+        function callMethodWallPost() // ГўГ»Г§Г»ГўГ ГҐГ¬ Г¬ГҐГІГ®Г¤ Г‚ГЉ
         {
                         vkBridge.send('VKWebAppShowNativeAds', {
-                  ad_format: 'interstitial' /* Тип рекламы */
+                  ad_format: 'interstitial' /* Г’ГЁГЇ Г°ГҐГЄГ«Г Г¬Г» */
                   })
                   .then( (data) => { 
-                    if (data.result) {
-                      // Реклама была показана
+                    if (data.result) {alert (data);
+                      // ГђГҐГЄГ«Г Г¬Г  ГЎГ»Г«Г  ГЇГ®ГЄГ Г§Г Г­Г 
                     } else {
-                      // Ошибка
+                      // ГЋГёГЁГЎГЄГ 
                     }
                   })
                   .catch((error) => { console.log(error); });
         }
 
-        jQuery(document).ready(function($) // страница прогружена
+        jQuery(document).ready(function($) // Г±ГІГ°Г Г­ГЁГ¶Г  ГЇГ°Г®ГЈГ°ГіГ¦ГҐГ­Г 
         {
-            vkBridge.send('VKWebAppInit'); // Инициализация ВК
+            vkBridge.send('VKWebAppInit'); // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Г‚ГЉ
         });
 
     </script>
