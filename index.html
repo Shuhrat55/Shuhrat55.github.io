@@ -124,7 +124,7 @@
         function auth(){
         vkBridge.send('VKWebAppGetUserInfo').then(data =>{
           console.log(data);
-          unityI.SendMessage('ConnectJS', 'AuthenticateSuccess',UTF8ToString(data));
+          unityI.SendMessage('ConnectJS', 'AuthenticateSuccess',string data);
         });
       }
 /*
