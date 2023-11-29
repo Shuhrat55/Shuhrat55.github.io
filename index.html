@@ -123,7 +123,7 @@
     <script>   // Пользовательский код
 
            function auth(){
-              vkBridge.send('VKWebAppGetUserInfo',{})
+              vkBridge.send('VKWebAppGetUserInfo')
               .then((data) => { 
                   // data — объект с информацией о пользователе
                   console.log(data);
@@ -133,7 +133,7 @@
               .catch((error) => {
                 console.log(error); // Ошибка
               });
-           }
+           
      /* function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
         console.log(data);
