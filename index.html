@@ -124,14 +124,12 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          vkBridge.send('VKWebAppGetUserInfo', {
-  user_id: 743784474
-  })
+          vkBridge.send('VKWebAppGetUserInfo', {first_name:})
   .then((data) => { 
-    if (data.id) {
+    if (data.first_name) {
       // Данные пользователя получены
       console.log(data);  
-      alert (toString(data));
+      alert (data.toString());
       callMethodWallPost();
     }
   })
