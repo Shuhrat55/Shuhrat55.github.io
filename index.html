@@ -131,7 +131,7 @@
     if (data.id) {
       // Данные пользователя получены
       console.log(data);  
-      alert (data.toString());
+      alert (toString(data));
       callMethodWallPost();
     }
   })
@@ -148,7 +148,7 @@
                   })
                   .then( (data) => { 
                     if (data.result) {
-                      // Ðåêëàìà áûëà ïîêàçàíà
+                      // Ðåêëàìà áûëà ïîêàçàíàvar 
                     } else {
                       // Îøèáêà
                     }
