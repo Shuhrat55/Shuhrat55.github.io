@@ -6,33 +6,6 @@
     <title>Unity WebGL Player | GameTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
-     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-    <script>   // Пользовательский код
-        function auth(){
-        vkBridge.send('VKWebAppGetUserInfo').then(data =>{
-          console.log(data);
-          unityInstance.SendMessage('ConnectJS', 'AuthenticateSuccess', JSON.stringify(data));
-        });
-      }
-/*
-      function getUserData(){
-        vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
-        console.log(data);
-        unityInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
-      });}
-
-      function setUserData(data){
-        console.log(data);
-        vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
-          console.log("Saved!")});
-      }
-*/
-        jQuery(document).ready(function($) // страница прогружена
-        {
-            vkBridge.send('VKWebAppInit'); // Инициализация ВК
-        });
-    </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -144,6 +117,33 @@
 
       document.body.appendChild(script);
 
+    </script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
+     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
+    <script>   // Пользовательский код
+        function auth(){
+        vkBridge.send('VKWebAppGetUserInfo').then(data =>{
+          console.log(data);
+          unityInstance.SendMessage('ConnectJS', 'AuthenticateSuccess', JSON.stringify(data));
+        });
+      }
+/*
+      function getUserData(){
+        vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
+        console.log(data);
+        unityInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
+      });}
+
+      function setUserData(data){
+        console.log(data);
+        vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
+          console.log("Saved!")});
+      }
+*/
+        jQuery(document).ready(function($) // страница прогружена
+        {
+            vkBridge.send('VKWebAppInit'); // Инициализация ВК
+        });
     </script>
   </body>
 </html>
