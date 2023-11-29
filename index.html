@@ -124,9 +124,7 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          bridge.send('VKWebAppGetUserInfo', {
-  user_id: 743784474
-  })
+          vkBridge.send('VKWebAppGetUserInfo')
   .then((data) => { 
     if (data.id) {
       // Данные пользователя получены
