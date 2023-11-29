@@ -120,9 +120,16 @@
     </script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-    <script>   // Пользовательский код
-            function ads(){
-                 vkBridge.send('VKWebAppShowNativeAds', {
+   <script>   // Пользовательский код
+
+        function ads ()   // функция вызывается из Unity
+        {
+        callMethodWallPost();
+        }
+
+        function callMethodWallPost() // вызываем метод ВК
+        {
+                        vkBridge.send('VKWebAppShowNativeAds', {
                   ad_format: 'interstitial' /* Тип рекламы */
                   })
                   .then( (data) => { 
@@ -133,23 +140,13 @@
                     }
                   })
                   .catch((error) => { console.log(error); });
-           
-     /* function getUserData(){
-        vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
-        console.log(data);
-        unityInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
-      });}
-
-      function setUserData(data){
-        console.log(data);
-        vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
-          console.log("Saved!")});*/
-      
+        }
 
         jQuery(document).ready(function($) // страница прогружена
         {
             vkBridge.send('VKWebAppInit'); // Инициализация ВК
         });
+
     </script>
   </body>
 </html>
