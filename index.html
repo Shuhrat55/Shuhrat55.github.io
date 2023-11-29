@@ -125,10 +125,10 @@
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
           vkBridge.send('VKWebAppGetUserInfo')
-  .then((data) => { 
-    if (data.id) {
+  .then((info) => { 
+    if (info) {
       // Данные пользователя получены
-      alert (data);
+      alert (info);
       callMethodWallPost();
     }
   })
