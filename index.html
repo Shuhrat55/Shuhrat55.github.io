@@ -133,7 +133,19 @@
               .catch((error) => {
                 console.log(error); // Ошибка
               });
-           
+            function ads(){
+                           vkBridge.send('VKWebAppShowNativeAds', {
+                  ad_format: 'interstitial' /* Тип рекламы */
+                  })
+                  .then( (data) => { 
+                    if (data.result) {
+                      // Реклама была показана
+                    } else {
+                      // Ошибка
+                    }
+                  })
+                  .catch((error) => { console.log(error); });
+            }
      /* function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
         console.log(data);
