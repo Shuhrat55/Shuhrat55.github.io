@@ -120,19 +120,18 @@
     </script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-    <script>   // Пользовательский код
+    <script>   // ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГЁГ© ГЄГ®Г¤
 
-           function auth()
-           {
+           function auth(){
               vkBridge.send('VKWebAppGetUserInfo',{})
               .then((data) => { 
-                  // data — объект с информацией о пользователе
+                  // data вЂ” Г®ГЎГєГҐГЄГІ Г± ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГҐГ© Г® ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐ
                   console.log(data);
                   unityI.SendMessage('Connect_JS', 'AuthenticateSuccess',JSON.stringify(data));
                 }
               })
               .catch((error) => {
-                console.log(error); // Ошибка
+                console.log(error); // ГЋГёГЁГЎГЄГ 
               });
            }
      /* function getUserData(){
@@ -147,9 +146,9 @@
           console.log("Saved!")});*/
       }
 
-        jQuery(document).ready(function($) // страница прогружена
+        jQuery(document).ready(function($) // Г±ГІГ°Г Г­ГЁГ¶Г  ГЇГ°Г®ГЈГ°ГіГ¦ГҐГ­Г 
         {
-            vkBridge.send('VKWebAppInit'); // Инициализация ВК
+            vkBridge.send('VKWebAppInit'); // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Г‚ГЉ
         });
     </script>
   </body>
