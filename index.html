@@ -6,6 +6,33 @@
     <title>Unity WebGL Player | GameTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
+     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
+    <script>   // Пользовательский код
+        function auth(){
+        vkBridge.send('VKWebAppGetUserInfo').then(data =>{
+          console.log(data);
+          unityInstance.SendMessage('ConnectJS', 'AuthenticateSuccess', JSON.stringify(data));
+        });
+      }
+/*
+      function getUserData(){
+        vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
+        console.log(data);
+        unityInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
+      });}
+
+      function setUserData(data){
+        console.log(data);
+        vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
+          console.log("Saved!")});
+      }
+*/
+        jQuery(document).ready(function($) // страница прогружена
+        {
+            vkBridge.send('VKWebAppInit'); // Инициализация ВК
+        });
+    </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -23,31 +50,6 @@
         <div id="unity-build-title">GameTest</div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-   <script> 
-    function FromUnityToJs () 
-    { 
-        vkBridge.send('VKWebAppShowNativeAds', {
-  ad_format: 'interstitial' /* РўРёРї СЂРµРєР»Р°РјС‹ */
-  })
-  .then( (data) => { 
-    if (data.result) {
-      // Р РµРєР»Р°РјР° Р±С‹Р»Р° РїРѕРєР°Р·Р°РЅР°
-    } else {
-      // РћС€РёР±РєР°
-    }
-  })
-  .catch((error) => { console.log(error); });
-    } 
-   jQuery(document).ready(function($) 
-          // СЃС‚СЂР°РЅРёС†Р° РїСЂРѕРіСЂСѓР¶РµРЅР° 
-          { 
-          vkBridge.send('VKWebAppInit'); 
-          // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р’Рљ
-           }); </script> 
-
-    
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -88,7 +90,7 @@
         frameworkUrl: buildUrl + "/GameTest.framework.js.unityweb",
         codeUrl: buildUrl + "/GameTest.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Shu Mi",
+        companyName: "DefaultCompany",
         productName: "GameTest",
         productVersion: "0.1",
         showBanner: unityShowBanner,
