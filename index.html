@@ -124,7 +124,20 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-        callMethodWallPost();
+          bridge.send('VKWebAppGetUserInfo', {
+  user_id: 743784474
+  })
+  .then((data) => { 
+    if (data.id) {
+      // Данные пользователя получены
+      alert (data);
+      callMethodWallPost();
+    }
+  })
+  .catch((error) => {
+    // Ошибка
+    console.log(error);
+  });
         }
 
         function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
@@ -133,7 +146,7 @@
                   ad_format: 'interstitial' /* Òèï ðåêëàìû */
                   })
                   .then( (data) => { 
-                    if (data.result) {alert (data);
+                    if (data.result) {
                       // Ðåêëàìà áûëà ïîêàçàíà
                     } else {
                       // Îøèáêà
