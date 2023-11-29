@@ -124,9 +124,9 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          vkBridge.send('VKWebAppGetUserInfo', {first_name:})
+          vkBridge.send('VKWebAppGetUserInfo')
   .then((data) => { 
-    if (data.first_name) {
+    if (data) {
       // Данные пользователя получены
       console.log(data);  
       alert (data.toString());
