@@ -120,15 +120,22 @@
     </script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-    <script>   // ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГЁГ© ГЄГ®Г¤
-        function auth(){
-        vkBridge.send('VKWebAppGetUserInfo').then(data =>{
-          console.log(data);
-          unityI.SendMessage('ConnectJS', 'AuthenticateSuccess',JSON.stringify(data));
-        });
-      }
-/*
-      function getUserData(){
+    <script>   // Пользовательский код
+
+           function auth()
+           {
+              vkBridge.send('VKWebAppGetUserInfo',{})
+              .then((data) => { 
+                  // data — объект с информацией о пользователе
+                  console.log(data);
+                  unityI.SendMessage('Connect_JS', 'AuthenticateSuccess',JSON.stringify(data));
+                }
+              })
+              .catch((error) => {
+                console.log(error); // Ошибка
+              });
+           }
+     /* function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
         console.log(data);
         unityInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
@@ -137,12 +144,12 @@
       function setUserData(data){
         console.log(data);
         vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
-          console.log("Saved!")});
+          console.log("Saved!")});*/
       }
-*/
-        jQuery(document).ready(function($) // Г±ГІГ°Г Г­ГЁГ¶Г  ГЇГ°Г®ГЈГ°ГіГ¦ГҐГ­Г 
+
+        jQuery(document).ready(function($) // страница прогружена
         {
-            vkBridge.send('VKWebAppInit'); // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Г‚ГЉ
+            vkBridge.send('VKWebAppInit'); // Инициализация ВК
         });
     </script>
   </body>
