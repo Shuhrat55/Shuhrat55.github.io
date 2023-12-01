@@ -118,6 +118,7 @@
       };
       document.body.appendChild(script);
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
    <script>   // Ïîëüçîâàòåëüñêèé êîä
@@ -128,9 +129,10 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получены
-                        var _info=JSON.stringify(data,null,4);
+                        var _info=JSON.stringify(data);
+                        var sJSON=JSON.Parse(_info);
                         
-                        var User_id = _info["first_name"];
+                        var User_id = sJSON["first_name"];
                         alert (User_id);
                        
                       }
