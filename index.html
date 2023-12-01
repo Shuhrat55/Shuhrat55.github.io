@@ -131,8 +131,8 @@
                         // Данные пользователя получены
                         var info = JSON.stringify(data);
                         var ht=JSON.Parse(info);
-                        var uid = ht.data['id'];
-                        alert (uid);
+                        var uid = ht['id'];
+                        alert (JSON.stringify(uid));
    
                       }
                     })
