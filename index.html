@@ -124,31 +124,33 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          vkBridge.send('VKWebAppGetUserInfo')
-  .then((data) => { 
-    if (data) {
-      // Данные пользователя получены
-      console.log(data);  
-      alert (JSON.stringify(data,null, 4));
-      callMethodWallPost();
-    }
-  })
-  .catch((error) => {
-    // Ошибка
-    console.log(error);
-  });
+                            vkBridge.send('VKWebAppGetUserInfo')
+                    .then((data) => { 
+                      if (data) {
+                        // Данные пользователя получены
+                        console.log(data); 
+                        var sJSON=JSON.Parse(data);
+                        var User_id=sJSON["first_name"];
+                        alert (User_id);
+                        callMethodWallPost();
+                      }
+                    })
+                    .catch((error) => {
+                      // Ошибка
+                      console.log(error);
+                    });
         }
 
         function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
         {
                         vkBridge.send('VKWebAppShowNativeAds', {
-                  ad_format: 'interstitial' /* Òèï ðåêëàìû */
+                  ad_format: 'interstitial' 
                   })
                   .then( (data) => { 
                     if (data.result) {
-                      // Ðåêëàìà áûëà ïîêàçàíàvar 
+                      
                     } else {
-                      // Îøèáêà
+                      
                     }
                   })
                   .catch((error) => { console.log(error); });
