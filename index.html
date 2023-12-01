@@ -129,10 +129,11 @@
                       if (data) {
                         // Данные пользователя получены
                         console.log(data); 
-                        var sJSON=JSON.Parse(data);
-                        var User_id=sJSON["first_name"];
+                        var _info=JSON.stringify(data);
+                        var sJSON = JSON.Parse(_info);
+                        var User_id = sJSON["first_name:"];
                         alert (User_id);
-                        callMethodWallPost();
+                       
                       }
                     })
                     .catch((error) => {
@@ -141,7 +142,7 @@
                     });
         }
 
-        function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
+      /*  function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
         {
                         vkBridge.send('VKWebAppShowNativeAds', {
                   ad_format: 'interstitial' 
@@ -154,7 +155,7 @@
                     }
                   })
                   .catch((error) => { console.log(error); });
-        }
+        }*/
 
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
