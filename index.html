@@ -128,10 +128,10 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получены
-                        console.log(data); 
+                        alert(JSON.stringify(data,null,4)); 
                         var _info=JSON.stringify(data);
-                        var sJSON = JSON.Parse(_info);
-                        var User_id = sJSON["first_name:"];
+                        
+                        var User_id = _info["first_name"];
                         alert (User_id);
                        
                       }
