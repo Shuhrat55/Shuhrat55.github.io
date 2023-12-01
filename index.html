@@ -130,11 +130,8 @@
                       if (data) {
                         // Данные пользователя получены
                         var _info=JSON.stringify(data);
-                        var sJSON=JSON.Parse(_info);
-                        
-                        var User_id = sJSON["first_name"];
-                        alert (User_id);
-                       
+                        alert (_info);
+                       break;
                       }
                     })
                     .catch((error) => {
