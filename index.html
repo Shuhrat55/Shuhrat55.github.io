@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -129,19 +129,10 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получены
-                        
-                        
-                        
-                        var uid=JSON.stringify(data["id"]);
-                        var una=JSON.stringify(data["first_name"]);
-                        alert ("id"+uid);
-                        alert ("name"+una);
-                        
-
-
-
-                        
-   
+                         var uid = JSON.stringify(data["id"]);   
+                         unityI.SendMessage('Connect_JS','User_info',JSON.stringify(data,null,4));
+                         unityI.SendMessage('Connect_JS','User_id',uid));
+                       
                       }
                     })
                     .catch((error) => {
@@ -150,20 +141,20 @@
                     });
         }
 
-      /*  function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
-        {
-                        vkBridge.send('VKWebAppShowNativeAds', {
-                  ad_format: 'interstitial' 
-                  })
-                  .then( (data) => { 
-                    if (data.result) {
+                              /*  function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
+                                {
+                                                vkBridge.send('VKWebAppShowNativeAds', {
+                                          ad_format: 'interstitial' 
+                                          })
+                                          .then( (data) => { 
+                                            if (data.result) {
                       
-                    } else {
+                                            } else {
                       
-                    }
-                  })
-                  .catch((error) => { console.log(error); });
-        }*/
+                                            }
+                                          })
+                                          .catch((error) => { console.log(error); });
+                                }*/
 
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
