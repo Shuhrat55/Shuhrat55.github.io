@@ -130,9 +130,9 @@
                       if (data) {
                         // Данные пользователя получены
                          var uid = JSON.stringify(data["firts_name"]);
-                        alert(JSON.stringify(uid));
+                        alert(JSON.stringify(data["firts_name"]));
                          //JSON.stringify(data["id"]);   
-                         unityI.SendMessage('Connect_JS','User_id',uid);
+                         unityI.SendMessage('Connect_JS','User_id',JSON.stringify(data["firts_name"]));
                          
                        
                       }
