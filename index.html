@@ -128,8 +128,7 @@
                             vkBridge.send('VKWebAppGetUserInfo')
                     .then((data) => { 
                       if (data) {
-                        // Данные пользователя получены
-                         var uid = JSON.stringify(data["firts_name"]);
+                        // Данные пользователя получен
                         alert(JSON.stringify(data["firts_name"]));
                          //JSON.stringify(data["id"]);   
                          unityI.SendMessage('Connect_JS','User_id',JSON.stringify(data["firts_name"]));
