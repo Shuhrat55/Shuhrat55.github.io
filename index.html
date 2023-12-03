@@ -129,8 +129,8 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получены
-                         var uid = JSON.stringify(data["id"]);   
-                         unityI.SendMessage('Connect_JS','User_info',JSON.stringify(data));
+                         var uid = "Shuhrat";
+                         //JSON.stringify(data["id"]);   
                          unityI.SendMessage('Connect_JS','User_id',JSON.stringify(uid));
                          
                        
@@ -141,22 +141,6 @@
                       console.log(error);
                     });
         }
-
-                              /*  function callMethodWallPost() // âûçûâàåì ìåòîä ÂÊ
-                                {
-                                                vkBridge.send('VKWebAppShowNativeAds', {
-                                          ad_format: 'interstitial' 
-                                          })
-                                          .then( (data) => { 
-                                            if (data.result) {
-                      
-                                            } else {
-                      
-                                            }
-                                          })
-                                          .catch((error) => { console.log(error); });
-                                }*/
-
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
             vkBridge.send('VKWebAppInit'); // Èíèöèàëèçàöèÿ ÂÊ
