@@ -129,7 +129,7 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получен
-                        var uid=JSON.stringify(data); 
+                        var uid=JSON.stringify(data["first_name"]); 
                         alert(uid);
                          //JSON.stringify(data["id"]);   
                         unityI.SendMessage('ConnectJS','User_id',uid);
