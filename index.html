@@ -136,11 +136,12 @@
                       }
                     }); */ 
           
-          vkBridge.send('VKWebAppStorageSet', {key: 'save',value: 'yfggy'}).then((data) => {if (data.result) {alert("Ok");}});
+          
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
             vkBridge.send('VKWebAppInit'); 
+          vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '55'}).then((data) => {if (data.result) {alert("id=55");}});
         });
 
     </script>
