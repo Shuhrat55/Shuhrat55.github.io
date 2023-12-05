@@ -125,7 +125,17 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '55'}).then((data) => {if (data.result) {alert("id=55");}});
+          vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '3577556'}).then((data) => {if (data.result)
+          {alert("id save");
+          vkBridge.send('VKWebAppStorageGet',{ keys: ['id']})
+  .then((data) => { 
+    if (data.keys) {
+    // Значения получены
+    var id=JSON.stringify(data.keys,null,4);
+      alert (id) ;
+     }
+    });
+          }});
               /*    vkBridge.send('VKWebAppGetUserInfo')
                     .then((data) => { 
                       if (data) {
@@ -136,14 +146,7 @@
                         unityI.SendMessage('ConnectJS','User_id',name);
                       }
                     }); */ 
-          vkBridge.send('VKWebAppStorageGet',{ keys: ['id']})
-  .then((data) => { 
-    if (data.keys) {
-    // Значения получены
-    var id=JSON.stringify(data);
-      alert (id) ;
-     }
-    });
+          
           
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
