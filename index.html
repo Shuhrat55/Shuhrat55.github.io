@@ -127,7 +127,7 @@
         {
           vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '{"id":55,"name":"Shuhrat","money":2356}'}).then((data) => {if (data.result)
           {alert("id save");
-          vkBridge.send('VKWebAppStorageGet',{ keys: [0]})
+          vkBridge.send('VKWebAppStorageGet',{ keys: ['id']})
   .then((data) => { 
     if (data.keys) {
     // Значения получены
