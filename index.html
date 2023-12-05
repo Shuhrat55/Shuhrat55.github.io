@@ -125,6 +125,7 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
+          vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '55'}).then((data) => {if (data.result) {alert("id=55");}});
               /*    vkBridge.send('VKWebAppGetUserInfo')
                     .then((data) => { 
                       if (data) {
@@ -139,7 +140,8 @@
   .then((data) => { 
     if (data.keys) {
     // Значения получены
-    var id=JSON.stringify(data.keys['id']);
+    var id=JSON.stringify(data);
+      alert (id) ;
     
     });
           
@@ -147,7 +149,6 @@
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
             vkBridge.send('VKWebAppInit'); 
-          vkBridge.send('VKWebAppStorageSet', {key: 'id',value: '55'}).then((data) => {if (data.result) {alert("id=55");}});
         });
 
     </script>
