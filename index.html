@@ -125,7 +125,9 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-          vkBridge.send('VKWebAppStorageSet', {key: 'id',value:'save'}).then((data) => {if (data.result)
+          var save = "{id:55,name:Shuhrat,money:2356}";
+          var sat =JSON.stringify (save) ;
+          vkBridge.send('VKWebAppStorageSet', {sat}).then((data) => {if (data.result)
           {alert("id save");
           vkBridge.send('VKWebAppStorageGet',{ keys: ['id']})
   .then((data) => { 
