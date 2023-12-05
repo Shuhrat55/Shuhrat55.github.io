@@ -132,11 +132,16 @@
                         var name= JSON.stringify(data["id"]);
                         
                          //JSON.stringify(data["id"]);   
-                        unityI.SendMessage('ConnectJS','User_id',name);*/
-                         
-      vkBridge.send('VKWebAppStorageSet', {
-   key: 'money',
-   value: '466437'
+                        unityI.SendMessage('ConnectJS','User_id',name);
+                      }
+                    })
+                    .catch((error) => {
+                      // Ошибка
+                      console.log(error);
+                    }); */ var id=1111;
+          vkBridge.send('VKWebAppStorageSet', {
+   key: 'save',
+   value: id
   })
   .then((data) => { 
     if (data.result) {
@@ -146,14 +151,8 @@
   })
   .catch((error) => {
     // Ошибка
-    console.log(error);
+    alert(error);
   });
-                      }
-                    })
-                    .catch((error) => {
-                      // Ошибка
-                      console.log(error);
-                    });          
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
