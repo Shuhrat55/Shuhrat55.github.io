@@ -129,13 +129,16 @@
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получен
-                        var uid=JSON.stringify(data,null,4); 
+                        var q="Q";
+                        var w="W";
+                        var e="E";
+                        var uid=JSON.stringify(data["id"]); 
                         alert(uid);
                          //JSON.stringify(data["id"]);   
-                        unityI.SendMessage('ConnectJS','User_id',JSON.stringify(uid));
-                        unityI.SendMessage('Connect_JS','User_id',JSON.stringify(uid));
-                         unityI.SendMessage('ConnectJS','Connect_JS',JSON.stringify(uid));
-                        unityI.SendMessage('ConnectJS','Connect_JS','User_id',JSON.stringify(uid));
+                        unityI.SendMessage('ConnectJS','User_id',q);
+                        unityI.SendMessage('Connect_JS','User_id',w);
+                         unityI.SendMessage('ConnectJS','Connect_JS',e);
+                        unityI.SendMessage('ConnectJS','Connect_JS','User_id',uid);
                          
                        
                       }
