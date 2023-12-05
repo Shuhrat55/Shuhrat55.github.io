@@ -125,16 +125,29 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-                  vkBridge.send('VKWebAppGetUserInfo')
+              /*    vkBridge.send('VKWebAppGetUserInfo')
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получ
                         var name= JSON.stringify(data["id"]);
                         
                          //JSON.stringify(data["id"]);   
-                        unityI.SendMessage('ConnectJS','User_id',name);
+                        unityI.SendMessage('ConnectJS','User_id',name);*/
                          
-      
+      vkBridge.send('VKWebAppStorageSet', {
+   key: 'money',
+   value: '466437'
+  })
+  .then((data) => { 
+    if (data.result) {
+      // Значение переменной задано
+   alert(JSON.stringify(data.result));
+    }
+  })
+  .catch((error) => {
+    // Ошибка
+    console.log(error);
+  });
                       }
                     })
                     .catch((error) => {
