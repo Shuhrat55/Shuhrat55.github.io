@@ -134,25 +134,9 @@
                          //JSON.stringify(data["id"]);   
                         unityI.SendMessage('ConnectJS','User_id',name);
                       }
-                    })
-                    .catch((error) => {
-                      // Ошибка
-                      console.log(error);
-                    }); */ var id=1111;
-          vkBridge.send('VKWebAppStorageSet', {
-   key: 'save',
-   value: id
-  })
-  .then((data) => { 
-    if (data.result) {
-      // Значение переменной задано
-   alert(JSON.stringify(data.result));
-    }
-  })
-  .catch((error) => {
-    // Ошибка
-    alert(error);
-  });
+                    }); */ 
+          var id=23323323;
+          vkBridge.send('VKWebAppStorageSet', {key: 'save',value: id}).then((data) => {if (data.result) {alert("Ok");}});
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
