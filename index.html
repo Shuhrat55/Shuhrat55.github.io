@@ -132,7 +132,7 @@
                         var name=data["first_name"];
                         
                          //JSON.stringify(data["id"]);   
-                        unityI.SendMessage('ConnectJS','User_id',name);
+                        unityI.SendMessage('ConnectJS','User_id',JSON.stringify(name));
                          
                        
                       }
