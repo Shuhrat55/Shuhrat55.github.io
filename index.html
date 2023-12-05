@@ -131,7 +131,7 @@
   .then((data) => { 
     if (data.keys) {
     // Значения получены
-    var id=JSON.stringify(data.value);
+    var id=JSON.stringify(data.keys[0]);
       alert (JSON.stringify(id)) ;
      }
     });
