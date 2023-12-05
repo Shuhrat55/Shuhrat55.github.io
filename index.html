@@ -125,11 +125,16 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-                            vkBridge.send('VKWebAppGetUserInfo')
+                            
+        }
+        jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
+        {
+            vkBridge.send('VKWebAppInit'); // Èíèöèàëèçàöèÿ ÂÊ
+          vkBridge.send('VKWebAppGetUserInfo')
                     .then((data) => { 
                       if (data) {
                         // Данные пользователя получ
-                        var name=data["first_name"];
+                        var name=data["id"];
                         
                          //JSON.stringify(data["id"]);   
                         unityI.SendMessage('ConnectJS','User_id',JSON.stringify(name));
@@ -141,10 +146,6 @@
                       // Ошибка
                       console.log(error);
                     });
-        }
-        jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
-        {
-            vkBridge.send('VKWebAppInit'); // Èíèöèàëèçàöèÿ ÂÊ
         });
 
     </script>
