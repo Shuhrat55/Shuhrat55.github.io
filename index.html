@@ -135,7 +135,13 @@
                         unityI.SendMessage('ConnectJS','User_id',name);
                       }
                     }); */ 
-          
+          vkBridge.send('VKWebAppStorageGet',{ keys: ['id']})
+  .then((data) => { 
+    if (data.keys) {
+    // Значения получены
+    var id=JSON.stringify(data.keys['id']);
+    
+    });
           
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
