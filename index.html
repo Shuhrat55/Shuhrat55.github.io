@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en-ru">
+<html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -124,36 +124,16 @@
    <script>   // Ïîëüçîâàòåëüñêèé êîä
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
-          {
-            var info = JSON.stringify({"Name":"John","Age":30,"Address":"123 Street,City"});
-          vkBridge.send('VKWebAppStorageSet', {ft:"id",value:info}).then((data) => {if (data.result)
-          {alert("id save");
-          vkBridge.send('VKWebAppStorageGet',{ keys:["id"]})
-  .then((data) => { 
-    if (data.keys) {
-    // Значения получены
-    var id=JSON.stringify(data);
-      alert (id) ;
-    
-     }
-    });
-          }});
-              /*    vkBridge.send('VKWebAppGetUserInfo')
-                    .then((data) => { 
-                      if (data) {
-                        // Данные пользователя получ
-                        var name= JSON.stringify(data["id"]);
-                        
-                         //JSON.stringify(data["id"]);   
-                        unityI.SendMessage('ConnectJS','User_id',name);
-                      }
-                    }); */ 
-          
-          
+        {
+                    vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',data);} });          
+        }
+        function  save_info(save)
+        {                       
+          vkBridge.send('VKWebAppStorageSet', {key:"save",value:save}).then((data) => {if (data.result){alert("id save");}}); 
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
-            vkBridge.send('VKWebAppInit'); 
+            vkBridge.send('VKWebAppInit'); // Èíèöèàëèçàöèÿ ÂÊ
         });
 
     </script>
