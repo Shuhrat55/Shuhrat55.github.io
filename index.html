@@ -125,7 +125,7 @@
 
         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-                    vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',data);} });          
+                    vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',JSON.stringify(data.keys));} });          
         }
         function  save_info(save)
         {                       
