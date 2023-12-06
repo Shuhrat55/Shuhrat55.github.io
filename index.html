@@ -128,8 +128,9 @@
                     vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',JSON.stringify(data));alert(JSON.stringify(data));} });          
         }
         function  save_info(save)
-        {                       
-          vkBridge.send('VKWebAppStorageSet', {key:"save",value:save}).then((data) => {if (data.result){alert("id save");}}); 
+        {  
+          var id=JSON.stringify(save);
+          vkBridge.send('VKWebAppStorageSet', {key:"save",value:id}).then((data) => {if (data.result){alert("id save");}}); 
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
