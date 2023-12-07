@@ -129,8 +129,8 @@
         }
         function  save_info(save)
         {  
-          alert(JSON.stringify(save));
-          vkBridge.send('VKWebAppStorageSet', {key:"save",value:JSON.stringify(save)}).then((data) => {if (data.result){alert("id save");}}); 
+          alert(UTF8ToString(save));
+          vkBridge.send('VKWebAppStorageSet', {key:"save",value:UTF8ToString(str)(save)}).then((data) => {if (data.result){alert("id save");}}); 
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
