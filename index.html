@@ -123,14 +123,15 @@
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
    <script>   // Ïîëüçîâàòåëüñêèé êîä
 
-        function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
+         function ads ()   // ôóíêöèÿ âûçûâàåòñÿ èç Unity
         {
-                    vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',JSON.stringify(data));alert(JSON.stringify(data));} });          
+          vkBridge.send('VKWebAppStorageGet',{ keys:["save"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',JSON.stringify(data));alert(JSON.stringify(data));} });          
         }
-        function  save_info(save)
+        function  save_info(ms,ss)
         {  
-          alert(JSON.stringify(save));
-          vkBridge.send('VKWebAppStorageSet', {key:"save",value:JSON.stringify(save)}).then((data) => {if (data.result){alert("id save");}}); 
+            var save_data=JSON.stringify(ms,ss);
+          alert(save_data);
+          vkBridge.send('VKWebAppStorageSet', {key:"save",value:save_data}).then((data) => {if (data.result){alert("id save");}}); 
         }
         jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
         {
