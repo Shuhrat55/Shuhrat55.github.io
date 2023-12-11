@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -121,19 +121,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
-   <script>   // Ïîëüçîâàòåëüñêèé êîä
-
+   <script>  
          function ads () 
         {
-         vkBridge.send('VKWebAppStorageGet',{ keys:["id"]}).then((data) => { if (data.keys) { unityI.SendMessage('save',' Download_Info',JSON.stringify(data));alert(JSON.stringify(data));} });          
+         vkBridge.send('VKWebAppStorageGet',{ keys:["id"]}).then((data) => { if (data.keys) { 
+var odata= JSON.stringify(data);
+var tdata = transformString(odata); unityI.SendMessage('save','Download_Info',tdata);alert(data);} });          
         }
         function  save_info(save_money,save_score)
         {  
-          vkBridge.send('VKWebAppStorageSet', {key:'id',value:JSON.stringify(save_money)}).then((data) => {if (data.result){alert("save");}}); 
+      vkBridge.send('VKWebAppStorageSet', {key:'id',value:JSON.stringify(save_money)}).then((data) => {if (data.result){alert("save");}}); 
         }
-        jQuery(document).ready(function($) // ñòðàíèöà ïðîãðóæåíà
+        function transformString(inputString) {
+   return inputString.replace(/keys\(\[key:\"(\w+)\",value:\"(\w+)\"\]\)/, '$1:$2');
+}
+        jQuery(document).ready(function($)
         {
-            vkBridge.send('VKWebAppInit'); // Èíèöèàëèçàöèÿ ÂÊ
+            vkBridge.send('VKWebAppInit');        
         });
 
     </script>
