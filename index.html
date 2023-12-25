@@ -123,19 +123,12 @@
      <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> 
    <script>  
          function ads () 
-        {
-        vkBridge.send('VKWebAppStorageGet',{ keys:['save']}).then((data) => { if (data.keys) {
-        var ksave = data.keys[0].value.trim();
-        unityI.SendMessage('save','Download_Info',ksave);alert((save));
-         } });          
+        {      
+          alert("download ");
         }
         function  save_info(save_money,save_score)
         {  
-            var scores=save_score;
-            //var moneys=save_money;
-            //var sv=("Money: " + moneys + ", Score: " + scores);
-
-            vkBridge.send('VKWebAppStorageSet', {key:'save',value:scores}).then((data) => {if (data.result){alert(data);}}); 
+          alert("save");
         }
   
         jQuery(document).ready(function($)
