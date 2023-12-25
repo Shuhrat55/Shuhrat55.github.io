@@ -125,17 +125,17 @@
          function ads () 
         {
         vkBridge.send('VKWebAppStorageGet',{ keys:['save']}).then((data) => { if (data.keys) {
-        var save = data.keys[0].value.trim();
-        unityI.SendMessage('save','Download_Info',save);alert((save));
+        var ksave = data.keys[0].value.trim();
+        unityI.SendMessage('save','Download_Info',ksave);alert((save));
          } });          
         }
         function  save_info(save_money,save_score)
         {  
             var scores=save_score;
-            var moneys=save_money;
-            var sv=("Money: " + moneys + ", Score: " + scores);
+            //var moneys=save_money;
+            //var sv=("Money: " + moneys + ", Score: " + scores);
 
-            vkBridge.send('VKWebAppStorageSet', {key:'save',value:sv}).then((data) => {if (data.result){alert(data);}}); 
+            vkBridge.send('VKWebAppStorageSet', {key:'save',value:scores}).then((data) => {if (data.result){alert(data);}}); 
         }
   
         jQuery(document).ready(function($)
