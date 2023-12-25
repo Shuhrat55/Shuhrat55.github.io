@@ -135,7 +135,7 @@
             var moneys=save_money;
             var sv=("Money: " + moneys + ", Score: " + scores);
 
-            vkBridge.send('VKWebAppStorageSet', {key:'save',value:sv}).then((data) => {if (data.result){alert((data));}}); 
+            vkBridge.send('VKWebAppStorageSet', {key:'save',value:sv}).then((data) => {if (data.result){alert(data);}}); 
         }
   
         jQuery(document).ready(function($)
