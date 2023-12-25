@@ -126,10 +126,8 @@
         {
         vkBridge.send('VKWebAppStorageGet',{ keys:['save']}).then((data) => { if (data.keys) {
         var save = data.keys[0].value.trim();
-        var money=save.Money.trim();
-        var score=save.Score.trim();
-        unityI.SendMessage('save','Download_Info',money);alert( JSON.stringify(data));
-              alert("Money: " + money + ", Score: " + score);
+        unityI.SendMessage('save','Download_Info',save);alert((save));
+              alert(save);
          } });          
         }
         function  save_info(save_money,save_score)
