@@ -124,17 +124,23 @@
    <script>  
          function ads () 
         {
-         vkBridge.send('VKWebAppStorageGet',{ keys:["id"]}).then((data) => { if (data.keys) { 
-var odata= JSON.stringify(data);
-var tdata = transformString(odata); unityI.SendMessage('save','Download_Info',tdata);alert( JSON.stringify(data));} });          
+        vkBridge.send('VKWebAppStorageGet',{ keys:['save']}).then((data) => { if (data.keys) {
+        var save = data.keys[0].value.trim();
+        var money=save.Money.trim();
+        var score=save.Score.trim();
+        unityI.SendMessage('save','Download_Info',money);alert( JSON.stringify(data));
+              alert("Money: " + money + ", Score: " + score);
+         } });          
         }
         function  save_info(save_money,save_score)
         {  
-      vkBridge.send('VKWebAppStorageSet', {key:'id',value:JSON.stringify(save_money)}).then((data) => {if (data.result){alert("save");}}); 
+            var scores=(save_score);
+            var moneys=(save_money);
+            var sv=JSON.stringify("Money: " + moneys + ", Score: " + scores);
+
+            vkBridge.send('VKWebAppStorageSet', {key:'save',value:sv}).then((data) => {if (data.result){alert(JSON.stringify(data));}}); 
         }
-        function transformString(inputString) {
-   return inputString.replace(/keys\(\[key:\"(\w+)\",value:\"(\w+)\"\]\)/, '$1:$2');
-}
+  
         jQuery(document).ready(function($)
         {
             vkBridge.send('VKWebAppInit');        
