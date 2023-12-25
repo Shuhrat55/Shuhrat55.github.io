@@ -134,7 +134,7 @@
         {  
             var scores=(save_score);
             var moneys=(save_money);
-            var sv=JSON.stringify("Money: " + moneys + ", Score: " + scores);
+            var sv=("Money: " + moneys + ", Score: " + scores);
 
             vkBridge.send('VKWebAppStorageSet', {key:'save',value:sv}).then((data) => {if (data.result){alert(JSON.stringify(data));}}); 
         }
